@@ -1,5 +1,5 @@
 {
-  "name": "kabi",
+  "name": "kabi-cms",
   "version": "0.0.1",
   "description": "Node JS e-commerce CMS",
   "main": "./index.js",
