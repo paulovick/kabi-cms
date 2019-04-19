@@ -1,5 +1,5 @@
 import { Application } from 'express'
-import { IKabiRouter } from './routes/router'
+import { IKabiRouter } from './router'
 import { container, TYPES } from './ioc'
 
 class App {
@@ -19,7 +19,7 @@ class App {
     this.iKabiRouter = container.get<IKabiRouter>(TYPES.IKabiRouter)
   }
 
-  public register(app: Application) {
+  public register(app: Application): void {
     this.iKabiRouter.registerRoutes(app)
   }
 }

@@ -1,7 +1,8 @@
 
 const TYPES = {
   App: 'App',
-  IKabiRouter: 'IKabiRouter'
+  IKabiRouter: 'IKabiRouter',
+  IAdminHomeController: 'IAdminHomeController'
 }
 
 export { TYPES }
