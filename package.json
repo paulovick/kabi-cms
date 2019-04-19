@@ -2,12 +2,13 @@
   "name": "kabi-cms",
   "version": "0.0.10",
   "description": "Node JS e-commerce CMS",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
+  "types": "./lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
     "run-dev": "ts-node-dev --respawn --transpileOnly ./dev/index.ts",
-    "run-release": "tsc && node dist/index.js"
+    "run-release": "tsc && node lib/dev/index.js"
   },
   "files": ["lib/**/*", "index.js"],
   "prepare": "yarn build",
@@ -19,6 +20,7 @@
     "url": "https://github.com/paulovick/kabi-cms/issues"
   },
   "homepage": "https://github.com/paulovick/kabi-cms#readme",
+  "keywords": ["node", "cms"],
   "author": "Pau Torrents <pautg.95@gmail.com>",
   "license": "ISC",
   "dependencies": {
