@@ -7,7 +7,7 @@ import { IAdminHomeController } from '../contracts'
 class AdminHomeController implements IAdminHomeController {
 
   public registerRoutes(app: Application): void {
-    app.use('/admin', this.handleRoutes)
+    app.use('/api/admin', this.handleRoutes)
   }
 
   private handleRoutes(request: Request, response: Response): void {

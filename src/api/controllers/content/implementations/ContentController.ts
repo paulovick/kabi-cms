@@ -7,7 +7,7 @@ import { IContentController } from '../contracts'
 class ContentController implements IContentController {
 
   public registerRoutes(app: Application): void {
-    app.use('/', this.handleRoutes)
+    app.use('/api', this.handleRoutes)
   }
 
   private handleRoutes(request: Request, response: Response): void {
