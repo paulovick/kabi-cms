@@ -1,0 +1,22 @@
+{
+  "name": "ecommerce-cms",
+  "version": "0.0.1",
+  "description": "Node JS e-commerce CMS",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "run-dev": "ts-node-dev --respawn --transpileOnly ./dev/index.ts",
+    "run-release": "tsc && node build/index.js"
+  },
+  "author": "Pau Torrents",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.16.1",
+    "express": "^4.16.4",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.4.3"
+  }
+}
