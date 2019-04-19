@@ -1,5 +1,5 @@
 import express, { Application } from 'express'
-import { registerKabiAPI } from '../src/api'
+import { registerKabiAPI } from '../src'
 
 const port = process.env.PORT || 3000
 

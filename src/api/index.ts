@@ -1,5 +1,3 @@
-import 'reflect-metadata'
-
 import { Application } from 'express'
 import App from './App'
 
