@@ -1,8 +1,8 @@
 import "reflect-metadata"
 
 import { ContentController } from '../'
-import { IExpressAdapter } from '../../../../adapters/express/contracts'
-import { ExpressRequest, ExpressResponse } from '../../../../adapters/express/dtos'
+import { IExpressAdapter } from '../../../../../common/adapters/express/contracts'
+import { ExpressRequest, ExpressResponse } from '../../../../../common/adapters/express/dtos'
 
 describe('ContentController', () => {
   let iExpressAdapterMock: IExpressAdapter

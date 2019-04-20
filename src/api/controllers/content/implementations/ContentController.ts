@@ -1,9 +1,9 @@
 
 import { injectable, inject } from 'inversify'
 import { IContentController } from '../contracts'
-import { IExpressAdapter } from '../../../adapters/express/contracts'
+import { IExpressAdapter } from '../../../../common/adapters/express/contracts'
 import { TYPES } from '../../../ioc';
-import { ExpressRequest, ExpressResponse } from '../../../adapters/express/dtos'
+import { ExpressRequest, ExpressResponse } from '../../../../common/adapters/express/dtos'
 
 @injectable()
 class ContentController implements IContentController {

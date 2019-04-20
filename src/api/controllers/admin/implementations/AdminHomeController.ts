@@ -1,8 +1,8 @@
 
 import { injectable, inject } from 'inversify'
 import { IAdminHomeController } from '../contracts'
-import { ExpressResponse, ExpressRequest } from '../../../adapters/express/dtos'
-import { IExpressAdapter } from '../../../adapters/express/contracts'
+import { ExpressResponse, ExpressRequest } from '../../../../common/adapters/express/dtos'
+import { IExpressAdapter } from '../../../../common/adapters/express/contracts'
 import { TYPES } from '../../../ioc'
 
 @injectable()

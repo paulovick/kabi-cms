@@ -6,8 +6,8 @@ import { IAdminHomeController } from '../controllers/admin/contracts'
 import { AdminHomeController } from '../controllers/admin/implementations'
 import { IContentController } from '../controllers/content/contracts'
 import { ContentController } from '../controllers/content/implementations'
-import { IExpressAdapter } from '../adapters/express/contracts'
-import { ExpressAdapter } from '../adapters/express/implementations'
+import { IExpressAdapter } from '../../common/adapters/express/contracts'
+import { ExpressAdapter } from '../../common/adapters/express/implementations'
 
 const container = new Container()
 
