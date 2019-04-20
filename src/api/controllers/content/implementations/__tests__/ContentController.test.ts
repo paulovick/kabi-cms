@@ -10,7 +10,11 @@ describe('ContentController', () => {
 
   beforeEach(() => {
     iExpressAdapterMock = new (jest.fn<IExpressAdapter, []>(() => ({
-      use: jest.fn()
+      use: jest.fn(),
+      get: jest.fn(),
+      post: jest.fn(),
+      put: jest.fn(),
+      delete: jest.fn()
     })))
     contentController = new ContentController(iExpressAdapterMock)
   })
