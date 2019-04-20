@@ -5,12 +5,15 @@
   "main": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --config jestconfig.json",
     "build": "tsc",
     "run-dev": "ts-node-dev --respawn --transpileOnly ./dev/index.ts",
     "run-release": "tsc && node lib/dev/index.js"
   },
-  "files": ["lib/**/*", "index.js"],
+  "files": [
+    "lib/**/*",
+    "index.js"
+  ],
   "prepare": "yarn build",
   "repository": {
     "type": "git",
@@ -20,7 +23,10 @@
     "url": "https://github.com/paulovick/kabi-cms/issues"
   },
   "homepage": "https://github.com/paulovick/kabi-cms#readme",
-  "keywords": ["node", "cms"],
+  "keywords": [
+    "node",
+    "cms"
+  ],
   "author": "Pau Torrents <pautg.95@gmail.com>",
   "license": "ISC",
   "dependencies": {
@@ -30,5 +36,10 @@
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.0.0-pre.32",
     "typescript": "^3.4.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2"
   }
 }

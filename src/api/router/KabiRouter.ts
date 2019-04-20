@@ -19,9 +19,9 @@ class KabiRouter implements IKabiRouter {
     this.iContentController = iContentController
   }
 
-  public registerRoutes(app: Application): void {
-    this.iAdminHomeController.registerRoutes(app)
-    this.iContentController.registerRoutes(app)
+  public registerRoutes(): void {
+    this.iAdminHomeController.registerRoutes()
+    this.iContentController.registerRoutes()
   }
 }
 

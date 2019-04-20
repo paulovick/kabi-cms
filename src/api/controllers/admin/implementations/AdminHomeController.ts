@@ -1,16 +1,26 @@
 
-import { Application, Request, Response } from 'express'
-import { injectable } from 'inversify'
+import { injectable, inject } from 'inversify'
 import { IAdminHomeController } from '../contracts'
+import { ExpressResponse, ExpressRequest } from '../../../adapters/express/dtos'
+import { IExpressAdapter } from '../../../adapters/express/contracts'
+import { TYPES } from '../../../ioc'
 
 @injectable()
 class AdminHomeController implements IAdminHomeController {
 
-  public registerRoutes(app: Application): void {
-    app.use('/api/admin', this.handleRoutes)
+  private iExpressAdapter: IExpressAdapter
+
+  public constructor(
+    @inject(TYPES.IExpressAdapter) iExpressAdapter: IExpressAdapter
+  ) {
+    this.iExpressAdapter = iExpressAdapter
   }
 
-  private handleRoutes(request: Request, response: Response): void {
+  public registerRoutes(): void {
+    this.iExpressAdapter.use('/api/admin', this.handleRoutes)
+  }
+
+  private handleRoutes(request: ExpressRequest, response: ExpressResponse): void {
     response.send('Hello!!')
   }
 }

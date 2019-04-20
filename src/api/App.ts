@@ -19,8 +19,8 @@ class App {
     this.iKabiRouter = container.get<IKabiRouter>(TYPES.IKabiRouter)
   }
 
-  public register(app: Application): void {
-    this.iKabiRouter.registerRoutes(app)
+  public register(): void {
+    this.iKabiRouter.registerRoutes()
   }
 }
 

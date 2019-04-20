@@ -1,7 +1,7 @@
 import { Application } from 'express'
 
 interface IContentController {
-  registerRoutes(app: Application): void
+  registerRoutes(): void
 }
 
 export { IContentController }

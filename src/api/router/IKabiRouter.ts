@@ -1,7 +1,7 @@
 import { Application } from 'express'
 
 interface IKabiRouter {
-  registerRoutes(app: Application) : void
+  registerRoutes() : void
 }
 
 export default IKabiRouter
