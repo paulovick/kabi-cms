@@ -17,10 +17,10 @@ class AdminHomeController implements IAdminHomeController {
   }
 
   public registerRoutes(): void {
-    this.iExpressAdapter.use('/api/admin', this.handleRoutes)
+    this.iExpressAdapter.get('/api/admin', this.getHome)
   }
 
-  private handleRoutes(request: ExpressRequest, response: ExpressResponse): void {
+  private getHome(request: ExpressRequest, response: ExpressResponse): void {
     response.send('Hello!!')
   }
 }
