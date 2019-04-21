@@ -17,11 +17,11 @@ class ContentController implements IContentController {
   }
 
   public registerRoutes(): void {
-    this.iExpressAdapter.use('/api', this.handleRoutes)
+    this.iExpressAdapter.use('/', this.handleRoutes)
   }
 
   public handleRoutes(request: ExpressRequest, response: ExpressResponse): void {
-    response.send('Hello API content!!')
+    response.send('Hello content!!')
   }
 }
 

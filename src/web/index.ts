@@ -1,8 +1,8 @@
 import App from './App'
 
-const registerKabiAPI = (): void => {
+const registerKabiMVC = (): void => {
   const app: App = App.getInstance()
   app.register()
 }
 
-export { registerKabiAPI }
+export { registerKabiMVC }

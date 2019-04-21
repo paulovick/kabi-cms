@@ -4,7 +4,7 @@ import { ContentController } from '../'
 import { IExpressAdapter } from '../../../../../common/adapters/express/contracts'
 import { ExpressRequest, ExpressResponse } from '../../../../../common/adapters/express/dtos'
 
-describe('[API] ContentController', () => {
+describe('[MVC] ContentController', () => {
   let iExpressAdapterMock: IExpressAdapter
   let contentController: ContentController
 
