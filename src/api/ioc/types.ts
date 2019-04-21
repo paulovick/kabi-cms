@@ -5,7 +5,7 @@ const TYPES = {
 
   // App
   App: 'App',
-  IKabiRouter: 'IKabiRouter',
+  IKabiApiRouter: 'IKabiApiRouter',
   IAdminHomeController: 'IAdminHomeController',
   IContentController: 'IContentController'
 }

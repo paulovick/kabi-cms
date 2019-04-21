@@ -1,5 +1,4 @@
-import { Application } from 'express'
-import { IKabiRouter } from './router'
+import { IKabiApiRouter } from './router'
 import { container, TYPES } from './ioc'
 
 class App {
@@ -13,14 +12,14 @@ class App {
     return App.instance
   }
 
-  private readonly iKabiRouter: IKabiRouter
+  private readonly iKabiApiRouter: IKabiApiRouter
 
   constructor() {
-    this.iKabiRouter = container.get<IKabiRouter>(TYPES.IKabiRouter)
+    this.iKabiApiRouter = container.get<IKabiApiRouter>(TYPES.IKabiApiRouter)
   }
 
   public register(): void {
-    this.iKabiRouter.registerRoutes()
+    this.iKabiApiRouter.registerRoutes()
   }
 }
 

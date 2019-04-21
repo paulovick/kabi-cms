@@ -1,7 +1,7 @@
-import IKabiRouter from './IKabiRouter'
-import KabiRouter from './KabiRouter'
+import IKabiApiRouter from './IKabiApiRouter'
+import KabiApiRouter from './KabiApiRouter'
 
 export {
-  IKabiRouter,
-  KabiRouter
+  IKabiApiRouter,
+  KabiApiRouter
 }

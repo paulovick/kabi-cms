@@ -1,12 +1,11 @@
-import { Application } from 'express'
 import { injectable, inject } from 'inversify'
-import IKabiRouter from './IKabiRouter'
+import IKabiApiRouter from './IKabiApiRouter'
 import { TYPES } from '../ioc'
 import { IAdminHomeController } from '../controllers/admin/contracts'
 import { IContentController } from '../controllers/content/contracts'
 
 @injectable()
-class KabiRouter implements IKabiRouter {
+class KabiApiRouter implements IKabiApiRouter {
 
   private iAdminHomeController: IAdminHomeController
   private iContentController: IContentController
@@ -25,4 +24,4 @@ class KabiRouter implements IKabiRouter {
   }
 }
 
-export default KabiRouter
+export default KabiApiRouter
