@@ -1,5 +1,6 @@
 import { IKabiMvcRouter } from './router'
-import { container, TYPES } from './ioc'
+import { container } from '../common/application/ioc'
+import { TYPES } from '../common/application/ioc/types'
 
 class App {
   private static instance: App

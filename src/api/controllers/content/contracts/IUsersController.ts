@@ -1,7 +1,7 @@
 import { Application } from 'express'
 
-interface IContentController {
+interface IUsersController {
   registerRoutes(): void
 }
 
-export { IContentController }
+export { IUsersController }

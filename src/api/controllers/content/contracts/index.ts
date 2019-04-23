@@ -1,1 +1,1 @@
-export * from './IContentController'
+export * from './IUsersController'

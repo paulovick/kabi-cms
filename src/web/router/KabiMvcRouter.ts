@@ -1,8 +1,8 @@
 import { injectable, inject } from 'inversify'
 import IKabiMvcRouter from './IKabiMvcRouter'
-import { TYPES } from '../ioc'
 import { IAdminHomeController } from '../controllers/admin/contracts'
 import { IContentController } from '../controllers/content/contracts'
+import { TYPES } from '../../common/application/ioc/types'
 
 @injectable()
 class KabiMvcRouter implements IKabiMvcRouter {
@@ -11,8 +11,8 @@ class KabiMvcRouter implements IKabiMvcRouter {
   private iContentController: IContentController
 
   public constructor(
-    @inject(TYPES.IAdminHomeController) iAdminHomeController: IAdminHomeController,
-    @inject(TYPES.IContentController) iContentController: IContentController
+    @inject(TYPES.MvcIAdminHomeController) iAdminHomeController: IAdminHomeController,
+    @inject(TYPES.MvcIContentController) iContentController: IContentController
   ) {
     this.iAdminHomeController = iAdminHomeController
     this.iContentController = iContentController

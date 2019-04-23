@@ -1,26 +1,26 @@
 import { injectable, inject } from 'inversify'
 import IKabiApiRouter from './IKabiApiRouter'
-import { TYPES } from '../ioc'
 import { IAdminHomeController } from '../controllers/admin/contracts'
-import { IContentController } from '../controllers/content/contracts'
+import { IUsersController } from '../controllers/content/contracts'
+import { TYPES } from '../../common/application/ioc/types'
 
 @injectable()
 class KabiApiRouter implements IKabiApiRouter {
 
   private iAdminHomeController: IAdminHomeController
-  private iContentController: IContentController
+  private iUsersController: IUsersController
 
   public constructor(
-    @inject(TYPES.IAdminHomeController) iAdminHomeController: IAdminHomeController,
-    @inject(TYPES.IContentController) iContentController: IContentController
+    @inject(TYPES.ApiIAdminHomeController) iAdminHomeController: IAdminHomeController,
+    @inject(TYPES.ApiIUsersController) iUsersController: IUsersController
   ) {
     this.iAdminHomeController = iAdminHomeController
-    this.iContentController = iContentController
+    this.iUsersController = iUsersController
   }
 
   public registerRoutes(): void {
     this.iAdminHomeController.registerRoutes()
-    this.iContentController.registerRoutes()
+    this.iUsersController.registerRoutes()
   }
 }
 
