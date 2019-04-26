@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest",
     "build": "tsc",
     "run-dev": "ts-node-dev --respawn --transpileOnly ./dev/index.ts",
     "run-release": "tsc && node lib/dev/index.js"
@@ -14,6 +14,13 @@
     "lib/**/*",
     "index.js"
   ],
+  "jest": {
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  },
   "prepare": "yarn build",
   "repository": {
     "type": "git",
