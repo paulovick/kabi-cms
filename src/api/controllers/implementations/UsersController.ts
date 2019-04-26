@@ -29,7 +29,11 @@ class UsersController implements IUsersController {
   public async getById(request: ExpressRequest, response: ExpressResponse): Promise<void> {
     const id: number = Number(request.getParams().id)
     const user = await this.iUserService.getById(id)
-    response.send(user)
+    if (user) {
+      response.status(200).send(user)
+    } else {
+      response.status(404).send()
+    }
   }
 }
 

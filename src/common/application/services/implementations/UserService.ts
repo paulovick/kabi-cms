@@ -4,7 +4,7 @@ import { User } from '../../../domain/entities'
 
 @injectable()
 class UserService implements IUserService {
-    public async getById(id: number): Promise<User> {
+    public async getById(id: number): Promise<User | null> {
         // MOCK
         let user = new User()
         user.id = id
