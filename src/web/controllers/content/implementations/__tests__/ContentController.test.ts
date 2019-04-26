@@ -35,7 +35,8 @@ describe('[MVC] ContentController', () => {
     beforeEach(() => {
       request = new (jest.fn())
       response = new (jest.fn(() => ({
-        send: jest.fn()
+        send: jest.fn(),
+        status: jest.fn()
       })))
     })
   
