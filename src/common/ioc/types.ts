@@ -3,7 +3,6 @@ const TYPES = {
     // API
     ApiApp: 'ApiApp',
     IKabiApiRouter: 'IKabiApiRouter',
-    ApiIAdminHomeController: 'ApiIAdminHomeController',
     ApiIUsersController: 'ApiIUsersController',
 
     // MVC

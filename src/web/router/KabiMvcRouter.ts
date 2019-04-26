@@ -2,7 +2,7 @@ import { injectable, inject } from 'inversify'
 import IKabiMvcRouter from './IKabiMvcRouter'
 import { IAdminHomeController } from '../controllers/admin/contracts'
 import { IContentController } from '../controllers/content/contracts'
-import { TYPES } from '../../common/application/ioc/types'
+import { TYPES } from '../../common/ioc/types'
 
 @injectable()
 class KabiMvcRouter implements IKabiMvcRouter {

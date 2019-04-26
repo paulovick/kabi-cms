@@ -3,7 +3,7 @@ import { injectable, inject } from 'inversify'
 import { IAdminHomeController } from '../contracts'
 import { ExpressResponse, ExpressRequest } from '../../../../common/presentation/adapters/express/dtos'
 import { IExpressAdapter } from '../../../../common/presentation/adapters/express/contracts'
-import { TYPES } from '../../../../common/application/ioc/types'
+import { TYPES } from '../../../../common/ioc/types'
 
 @injectable()
 class AdminHomeController implements IAdminHomeController {

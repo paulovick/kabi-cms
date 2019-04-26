@@ -1,10 +1,10 @@
 
 import { injectable, inject } from 'inversify'
 import { IUsersController } from '../contracts'
-import { IExpressAdapter } from '../../../../common/presentation/adapters/express/contracts'
-import { ExpressRequest, ExpressResponse } from '../../../../common/presentation/adapters/express/dtos'
-import { TYPES } from '../../../../common/application/ioc/types'
-import { IUserService } from '../../../../common/application/services/contracts'
+import { IExpressAdapter } from '../../../common/presentation/adapters/express/contracts'
+import { ExpressRequest, ExpressResponse } from '../../../common/presentation/adapters/express/dtos'
+import { TYPES } from '../../../common/ioc/types'
+import { IUserService } from '../../../common/application/services/contracts'
 
 @injectable()
 class UsersController implements IUsersController {
