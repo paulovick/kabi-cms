@@ -4,7 +4,7 @@ class ExpressRequest {
   public request?: Request
 
   public getParams(): any {
-    return this.request? this.request.params : {}
+    return this.request ? this.request.params : {}
   }
 }
 
