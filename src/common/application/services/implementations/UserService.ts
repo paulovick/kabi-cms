@@ -1,16 +1,22 @@
-import { injectable } from 'inversify'
+import { injectable, inject } from 'inversify'
 import { IUserService } from '../contracts'
 import { User } from '../../../domain/entities'
+import { IUserRepository } from '../../../domain/repositories'
+import { TYPES } from '../../../ioc/types'
 
 @injectable()
 class UserService implements IUserService {
-    public async getById(id: number): Promise<User | null> {
-        // MOCK
-        let user = new User()
-        user.id = id
-        user.email = 'test@test.com'
-        user.username = 'test'
-        return user
+
+    private iUserRepository: IUserRepository
+
+    public constructor(
+        @inject(TYPES.IUserRepository) iUserRepository: IUserRepository
+    ) {
+        this.iUserRepository = iUserRepository
+    }
+
+    public getById(id: number): Promise<User | null> {
+        return this.iUserRepository.getById(id)
     }
 }
 

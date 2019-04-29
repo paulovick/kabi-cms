@@ -11,12 +11,14 @@ const TYPES = {
     MvcIAdminHomeController: 'MvcIAdminHomeController',
     MvcIContentController: 'MvcIContentController',
 
+    // Presentation
+    IExpressAdapter: 'IExpressAdapter',
+
     // Application
     IUserService: 'IUserService',
 
-    // Adapters
-    IExpressAdapter: 'IExpressAdapter',
-
+    // Infrastructure
+    IUserRepository: 'IUserRepository'
 }
 
 export { TYPES }

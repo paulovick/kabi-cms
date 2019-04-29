@@ -18,6 +18,8 @@ import { UserService } from '../application/services/implementations'
 
 import { IExpressAdapter } from '../presentation/adapters/express/contracts'
 import { ExpressAdapter } from '../presentation/adapters/express/implementations'
+import { IUserRepository } from '../domain/repositories'
+import { UserRepository } from '../infrastructure/repositories';
 
 const container = new Container()
 
@@ -32,11 +34,14 @@ container.bind<IKabiMvcRouter>(TYPES.IKabiMvcRouter).to(KabiMvcRouter)
 container.bind<MvcIAdminHomeController>(TYPES.MvcIAdminHomeController).to(MvcAdminHomeController)
 container.bind<MvcIContentController>(TYPES.MvcIContentController).to(MvcContentController)
 
+// Presentation
+container.bind<IExpressAdapter>(TYPES.IExpressAdapter).to(ExpressAdapter)
+
 // Application
 container.bind<IUserService>(TYPES.IUserService).to(UserService)
 
-// Adapters
-container.bind<IExpressAdapter>(TYPES.IExpressAdapter).to(ExpressAdapter)
+// Infrastructure
+container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository)
 
 
 export { container }
