@@ -21,10 +21,16 @@ class UserRepository implements IUserRepository {
         return null
     }
 
+    public async getByUsername(username: string): Promise<User | null> {
+        const result = this.users.find(user => user.username === username)
+        if (result) return result
+        return null
+    }
+
     private getFakeUser(id: number): User {
         let result = new User()
         result.id = id
-        result.username = 'User ' + id
+        result.username = 'username_' + id
         result.email = 'user' + id + '@test.com'
         return result
     }

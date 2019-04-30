@@ -39,11 +39,9 @@ class ExpressAdapter implements IExpressAdapter {
 
   private getExpressHandler(handler: (request: ExpressRequest, response: ExpressResponse) => void) {
     const result = (req: Request, res: Response) => {
-      const request: ExpressRequest = new ExpressRequest()
-      request.request = req
+      const request: ExpressRequest = new ExpressRequest(req)
 
-      const response: ExpressResponse = new ExpressResponse()
-      response.response = res
+      const response: ExpressResponse = new ExpressResponse(res)
       
       handler(request, response)
     }

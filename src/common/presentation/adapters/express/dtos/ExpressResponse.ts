@@ -1,7 +1,11 @@
 import { Response } from 'express'
 
 class ExpressResponse {
-  public response?: Response
+  private readonly response?: Response
+
+  constructor(response: Response) {
+    this.response = response
+  }
 
   public send(json: any = null): void {
     if (this.response) {

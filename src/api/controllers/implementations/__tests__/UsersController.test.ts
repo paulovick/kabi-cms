@@ -11,6 +11,9 @@ describe('[API] UsersController', () => {
   let iUserServiceMock: IUserService
   let usersController: UsersController
 
+  let request: ExpressRequest
+  let response: ExpressResponse
+
   beforeEach(() => {
     iExpressAdapterMock = new (jest.fn<IExpressAdapter, []>(() => ({
       use: jest.fn(),
@@ -20,8 +23,19 @@ describe('[API] UsersController', () => {
       delete: jest.fn()
     })))
     iUserServiceMock = new (jest.fn<IUserService, []>(() => ({
-      getById: jest.fn()
+      getById: jest.fn(),
+      getByUsername: jest.fn()
     })))
+
+    request = new (jest.fn<ExpressRequest, []>(() => ({
+      getParams: jest.fn(),
+      setParam: jest.fn()
+    })))
+    response = new (jest.fn(() => ({
+      send: jest.fn(),
+      status: jest.fn(() => response)
+    })))
+
     usersController = new UsersController(iExpressAdapterMock, iUserServiceMock)
   })
 
@@ -29,26 +43,15 @@ describe('[API] UsersController', () => {
 
     it('should call app.use', () => {
       usersController.registerRoutes()
-      expect(iExpressAdapterMock.get).toHaveBeenCalledWith('/api/users/:id', usersController.getById)
+      expect(iExpressAdapterMock.get).toHaveBeenCalledWith('/api/users/:idOrUsername', expect.any(Function))
     })
   })
-  
+
   describe('getById', () => {
 
-    let request: ExpressRequest
-    let response: ExpressResponse
-
-    beforeEach(() => {
-      request = new (jest.fn(() => ({
-        getParams: jest.fn(() => ({ id: 1 }))
-      })))
-      response = new (jest.fn(() => ({
-        send: jest.fn(),
-        status: jest.fn(() => response)
-      })))
-    })
-  
     it('should return 200 and user with id when user exists', async () => {
+      const userId: number = 1
+      request.getParams = jest.fn(() => ({ id: userId }))
       let user: User | null = null
       iUserServiceMock.getById = jest.fn(async (id: number) => {
         user = new User()
@@ -59,18 +62,53 @@ describe('[API] UsersController', () => {
       await usersController.getById(request, response)
 
       expect(request.getParams).toHaveBeenCalled()
-      expect(iUserServiceMock.getById).toHaveBeenCalledWith(1)
+      expect(iUserServiceMock.getById).toHaveBeenCalledWith(userId)
       expect(response.status).toHaveBeenCalledWith(200)
       expect(response.send).toHaveBeenCalledWith(user)
     })
 
     it('should return 404 when user not exists', async () => {
+      const userId: number = 1
+      request.getParams = jest.fn(() => ({ id: userId }))
       iUserServiceMock.getById = jest.fn(async (id: number): Promise<User | null> => { return null })
 
       await usersController.getById(request, response)
 
       expect(request.getParams).toHaveBeenCalled()
-      expect(iUserServiceMock.getById).toHaveBeenCalledWith(1)
+      expect(iUserServiceMock.getById).toHaveBeenCalledWith(userId)
+      expect(response.status).toHaveBeenCalledWith(404)
+    })
+  })
+
+  describe('getByUsername', () => {
+
+    it('should return 200 and user with username when user exists', async () => {
+      const username: string = 'test-username'
+      request.getParams = jest.fn(() => ({ username }))
+      let user: User | null = null
+      iUserServiceMock.getByUsername = jest.fn(async (username: string) => {
+        user = new User()
+        user.username = username
+        return user
+      })
+
+      await usersController.getByUsername(request, response)
+
+      expect(request.getParams).toHaveBeenCalled()
+      expect(iUserServiceMock.getByUsername).toHaveBeenCalledWith(username)
+      expect(response.status).toHaveBeenCalledWith(200)
+      expect(response.send).toHaveBeenCalledWith(user)
+    })
+
+    it('should return 404 when user not exists', async () => {
+      const username: string = 'test-username'
+      request.getParams = jest.fn(() => ({ username }))
+      iUserServiceMock.getByUsername = jest.fn(async (username: string): Promise<User | null> => { return null })
+
+      await usersController.getByUsername(request, response)
+
+      expect(request.getParams).toHaveBeenCalled()
+      expect(iUserServiceMock.getByUsername).toHaveBeenCalledWith(username)
       expect(response.status).toHaveBeenCalledWith(404)
     })
   })

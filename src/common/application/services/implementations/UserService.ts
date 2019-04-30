@@ -18,6 +18,10 @@ class UserService implements IUserService {
     public getById(id: number): Promise<User | null> {
         return this.iUserRepository.getById(id)
     }
+
+    public getByUsername(username: string): Promise<User | null> {
+        return this.iUserRepository.getByUsername(username)
+    }
 }
 
 export { UserService }
