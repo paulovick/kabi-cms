@@ -14,7 +14,9 @@ describe('[MVC] ContentController', () => {
       get: jest.fn(),
       post: jest.fn(),
       put: jest.fn(),
-      delete: jest.fn()
+      delete: jest.fn(),
+      engine: jest.fn(),
+      set: jest.fn()
     })))
     contentController = new ContentController(iExpressAdapterMock)
   })
@@ -36,7 +38,8 @@ describe('[MVC] ContentController', () => {
       request = new (jest.fn())
       response = new (jest.fn(() => ({
         send: jest.fn(),
-        status: jest.fn()
+        status: jest.fn(),
+        render: jest.fn()
       })))
     })
   

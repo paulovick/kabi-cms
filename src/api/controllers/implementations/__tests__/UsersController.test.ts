@@ -20,7 +20,9 @@ describe('[API] UsersController', () => {
       get: jest.fn(),
       post: jest.fn(),
       put: jest.fn(),
-      delete: jest.fn()
+      delete: jest.fn(),
+      engine: jest.fn(),
+      set: jest.fn()
     })))
     iUserServiceMock = new (jest.fn<IUserService, []>(() => ({
       getById: jest.fn(),
@@ -31,9 +33,10 @@ describe('[API] UsersController', () => {
       getParams: jest.fn(),
       setParam: jest.fn()
     })))
-    response = new (jest.fn(() => ({
+    response = new (jest.fn<ExpressResponse, []>(() => ({
       send: jest.fn(),
-      status: jest.fn(() => response)
+      status: jest.fn(() => response),
+      render: jest.fn()
     })))
 
     usersController = new UsersController(iExpressAdapterMock, iUserServiceMock)
