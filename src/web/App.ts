@@ -20,6 +20,7 @@ class App {
   }
 
   public register(): void {
+    this.iKabiMvcRouter.registerViewEngine()
     this.iKabiMvcRouter.registerRoutes()
   }
 }

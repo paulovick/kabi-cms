@@ -1,5 +1,6 @@
 
 interface IKabiMvcRouter {
+  registerViewEngine(): void
   registerRoutes() : void
 }
 

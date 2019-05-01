@@ -1,5 +1,6 @@
 import { Application, Request, Response } from 'express'
 import { injectable } from 'inversify'
+import { ExpessEngine } from 'mustache-express'
 import { IExpressAdapter } from '../contracts'
 import { ExpressRequest, ExpressResponse } from '../dtos'
 
@@ -37,10 +38,17 @@ class ExpressAdapter implements IExpressAdapter {
     ExpressAdapter.app.delete(path, expressHandler)
   }
 
+  public engine(type: string, engine: ExpessEngine) {
+    ExpressAdapter.app.engine(type, engine)
+  }
+
+  public set(setting: string, value: any) {
+    ExpressAdapter.app.set(setting, value)
+  }
+
   private getExpressHandler(handler: (request: ExpressRequest, response: ExpressResponse) => void) {
     const result = (req: Request, res: Response) => {
       const request: ExpressRequest = new ExpressRequest(req)
-
       const response: ExpressResponse = new ExpressResponse(res)
       
       handler(request, response)

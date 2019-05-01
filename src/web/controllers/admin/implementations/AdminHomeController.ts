@@ -21,7 +21,10 @@ class AdminHomeController implements IAdminHomeController {
   }
 
   private getHome(request: ExpressRequest, response: ExpressResponse): void {
-    response.send('Hello Admin!!')
+    const model = {
+      message: 'Hello from node!'
+    }
+    response.render('admin/home', model)
   }
 }
 
