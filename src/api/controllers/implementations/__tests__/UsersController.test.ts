@@ -21,7 +21,6 @@ describe('[API] UsersController', () => {
       post: jest.fn(),
       put: jest.fn(),
       delete: jest.fn(),
-      engine: jest.fn(),
       set: jest.fn()
     })))
     iUserServiceMock = new (jest.fn<IUserService, []>(() => ({

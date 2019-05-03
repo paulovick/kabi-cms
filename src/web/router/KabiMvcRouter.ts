@@ -1,5 +1,4 @@
 import { injectable, inject } from 'inversify'
-import mustacheExpress from 'mustache-express'
 import path from 'path'
 import IKabiMvcRouter from './IKabiMvcRouter'
 import { IAdminHomeController } from '../controllers/admin/contracts'
@@ -25,9 +24,7 @@ class KabiMvcRouter implements IKabiMvcRouter {
   }
 
   public registerViewEngine(): void {
-    this.iExpressAdapter.engine('html', mustacheExpress())
-
-    this.iExpressAdapter.set('view engine', 'html')
+    this.iExpressAdapter.set('view engine', 'pug')
     this.iExpressAdapter.set('views', `${path.dirname(__dirname)}/views`)
   }
 

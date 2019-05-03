@@ -15,7 +15,6 @@ describe('[MVC] ContentController', () => {
       post: jest.fn(),
       put: jest.fn(),
       delete: jest.fn(),
-      engine: jest.fn(),
       set: jest.fn()
     })))
     contentController = new ContentController(iExpressAdapterMock)
