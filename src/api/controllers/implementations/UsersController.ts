@@ -1,10 +1,10 @@
 
 import { injectable, inject } from 'inversify'
 import { IUsersController } from '../contracts'
-import { IExpressAdapter } from '../../../common/presentation/adapters/express/contracts'
-import { ExpressRequest, ExpressResponse } from '../../../common/presentation/adapters/express/dtos'
-import { TYPES } from '../../../common/ioc/types'
-import { IUserService } from '../../../common/application/services/contracts'
+import { IExpressAdapter } from '../../adapters/express/contracts'
+import { ExpressRequest, ExpressResponse } from '../../adapters/express/dtos'
+import { TYPES } from '../../../ioc/types'
+import { IUserService } from '../../../application/services/contracts'
 
 @injectable()
 class UsersController implements IUsersController {
@@ -23,9 +23,9 @@ class UsersController implements IUsersController {
   }
 
   public registerRoutes(): void {
-    this.iExpressAdapter.get('/api/users/:idOrUsername', (request: ExpressRequest, response: ExpressResponse) => {
+    this.iExpressAdapter.get('/users/:idOrUsername', (request: ExpressRequest, response: ExpressResponse) => {
       const { idOrUsername } = request.getParams()
-      if (this.isNumber(idOrUsername)) {
+      if (UsersController.isNumber(idOrUsername)) {
         request.setParam('id', Number(idOrUsername))
         this.getById(request, response)
       } else if (typeof idOrUsername == 'string') {
@@ -37,7 +37,7 @@ class UsersController implements IUsersController {
     })
   }
 
-  public async getById(request: ExpressRequest, response: ExpressResponse): Promise<void> {
+  public async getById(request: ExpressRequest, response: ExpressResponse) {
     const id: number = request.getParams().id
     const user = await this.iUserService.getById(id)
     if (user) {
@@ -47,7 +47,7 @@ class UsersController implements IUsersController {
     }
   }
 
-  public async getByUsername(request: ExpressRequest, response: ExpressResponse): Promise<void> {
+  public async getByUsername(request: ExpressRequest, response: ExpressResponse) {
     const username: string = request.getParams().username
     const user = await this.iUserService.getByUsername(username)
     if(user) {
@@ -57,11 +57,11 @@ class UsersController implements IUsersController {
     }
   }
 
-  public async handleError(request: ExpressRequest, response: ExpressResponse): Promise<void> {
+  public async handleError(request: ExpressRequest, response: ExpressResponse) {
     // TODO
   }
 
-  private isNumber(object: any): boolean {
+  private static isNumber(object: any): boolean {
     const numberVar = Number(object)
     return !isNaN(numberVar)
   }

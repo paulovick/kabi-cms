@@ -1,10 +1,9 @@
 import "reflect-metadata"
 
 import each from 'jest-each'
-
-import { UserService } from '../UserService'
-import { User } from '../../../../domain/entities'
-import { IUserRepository } from '../../../../domain/repositories'
+import {IUserRepository} from "../../../../src/domain/repositories";
+import {UserService} from "../../../../src/application/services/implementations";
+import {User} from "../../../../src/domain/entities";
 
 describe('[COMMON] UserService', () => {
     let iUserRepositoryMock: IUserRepository

@@ -5,12 +5,6 @@ const TYPES = {
     IKabiApiRouter: 'IKabiApiRouter',
     ApiIUsersController: 'ApiIUsersController',
 
-    // MVC
-    MvcApp: 'MvcApp',
-    IKabiMvcRouter: 'IKabiMvcRouter',
-    MvcIAdminHomeController: 'MvcIAdminHomeController',
-    MvcIContentController: 'MvcIContentController',
-
     // Presentation
     IExpressAdapter: 'IExpressAdapter',
 

@@ -1,10 +1,10 @@
 import "reflect-metadata"
 
-import { UsersController } from '..'
-import { IExpressAdapter } from '../../../../common/presentation/adapters/express/contracts'
-import { ExpressRequest, ExpressResponse } from '../../../../common/presentation/adapters/express/dtos'
-import { IUserService } from '../../../../common/application/services/contracts'
-import { User } from "../../../../common/domain/entities";
+import { IExpressAdapter } from "../../../../src/api/adapters/express/contracts"
+import { IUserService } from "../../../../src/application/services/contracts"
+import { UsersController } from "../../../../src/api/controllers/implementations"
+import { ExpressRequest, ExpressResponse } from "../../../../src/api/adapters/express/dtos"
+import { User } from "../../../../src/domain/entities"
 
 describe('[API] UsersController', () => {
   let iExpressAdapterMock: IExpressAdapter
@@ -21,7 +21,8 @@ describe('[API] UsersController', () => {
       post: jest.fn(),
       put: jest.fn(),
       delete: jest.fn(),
-      set: jest.fn()
+      set: jest.fn(),
+      registerStatic: jest.fn()
     })))
     iUserServiceMock = new (jest.fn<IUserService, []>(() => ({
       getById: jest.fn(),
@@ -45,7 +46,7 @@ describe('[API] UsersController', () => {
 
     it('should call app.use', () => {
       usersController.registerRoutes()
-      expect(iExpressAdapterMock.get).toHaveBeenCalledWith('/api/users/:idOrUsername', expect.any(Function))
+      expect(iExpressAdapterMock.get).toHaveBeenCalledWith('/users/:idOrUsername', expect.any(Function))
     })
   })
 

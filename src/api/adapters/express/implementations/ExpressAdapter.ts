@@ -1,4 +1,4 @@
-import { Application, Request, Response } from 'express'
+import { Application, Request, Response, static as expressStatic } from 'express'
 import { injectable } from 'inversify'
 import { IExpressAdapter } from '../contracts'
 import { ExpressRequest, ExpressResponse } from '../dtos'
@@ -39,6 +39,10 @@ class ExpressAdapter implements IExpressAdapter {
 
   public set(setting: string, value: any) {
     ExpressAdapter.app.set(setting, value)
+  }
+
+  public registerStatic(route: string, dirPath: string) {
+    ExpressAdapter.app.use(route, expressStatic(dirPath))
   }
 
   private getExpressHandler(handler: (request: ExpressRequest, response: ExpressResponse) => void) {

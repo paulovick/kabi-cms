@@ -8,7 +8,7 @@
     "test": "jest",
     "build": "tsc",
     "run-dev": "ts-node-dev --respawn --transpileOnly ./dev/index.ts",
-    "run-release": "tsc && cp -rf src/web/views lib/src/web/views && node lib/dev/index.js"
+    "run-release": "tsc && node lib/dev/index.js"
   },
   "files": [
     "lib/**/*",
@@ -18,7 +18,7 @@
     "transform": {
       "^.+\\.(t|j)sx?$": "ts-jest"
     },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "testRegex": "test/.*\\.(jsx?|tsx?)$",
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -48,7 +48,6 @@
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
     "inversify": "^5.0.1",
-    "pug": "^2.0.3",
     "reflect-metadata": "^0.1.13",
     "ts-node-dev": "^1.0.0-pre.32",
     "typescript": "^3.4.3"

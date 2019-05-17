@@ -1,6 +1,6 @@
 import { IKabiApiRouter } from './router'
-import { container } from '../common/ioc'
-import { TYPES } from '../common/ioc/types'
+import { container } from '../ioc'
+import { TYPES } from '../ioc/types'
 
 class App {
   private static instance: App

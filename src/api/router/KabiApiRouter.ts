@@ -1,7 +1,7 @@
 import { injectable, inject } from 'inversify'
 import IKabiApiRouter from './IKabiApiRouter'
 import { IUsersController } from '../controllers/contracts'
-import { TYPES } from '../../common/ioc/types'
+import { TYPES } from '../../ioc/types'
 
 @injectable()
 class KabiApiRouter implements IKabiApiRouter {

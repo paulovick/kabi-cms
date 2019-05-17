@@ -7,6 +7,7 @@ interface IExpressAdapter {
   put(path: string, handler: (request: ExpressRequest, response: ExpressResponse) => void): void
   delete(path: string, handler: (request: ExpressRequest, response: ExpressResponse) => void): void
   set(setting: string, value: any): void
+  registerStatic(route: string, dirPath: string): void
 }
 
 export { IExpressAdapter }
