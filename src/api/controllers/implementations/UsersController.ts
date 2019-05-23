@@ -5,6 +5,7 @@ import { IExpressAdapter } from '../../adapters/express/contracts'
 import { ExpressRequest, ExpressResponse } from '../../adapters/express/dtos'
 import { TYPES } from '../../../ioc/types'
 import { IUserService } from '../../../application/services/contracts'
+import '../../../common/extensions/objectExtensions'
 
 @injectable()
 class UsersController implements IUsersController {
