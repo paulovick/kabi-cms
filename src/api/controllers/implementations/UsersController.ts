@@ -25,7 +25,7 @@ class UsersController implements IUsersController {
   public registerRoutes(): void {
     this.iExpressAdapter.get('/users/:idOrUsername', (request: ExpressRequest, response: ExpressResponse) => {
       const { idOrUsername } = request.getParams()
-      if (UsersController.isNumber(idOrUsername)) {
+      if (idOrUsername.isNumber()) {
         request.setParam('id', Number(idOrUsername))
         this.getById(request, response)
       } else if (typeof idOrUsername == 'string') {
@@ -58,13 +58,13 @@ class UsersController implements IUsersController {
   }
 
   public async handleError(request: ExpressRequest, response: ExpressResponse) {
-    // TODO
+    throw new Error("Not implemented")
   }
 
-  private static isNumber(object: any): boolean {
-    const numberVar = Number(object)
-    return !isNaN(numberVar)
-  }
+  // private static isNumber(object: any): boolean {
+  //   const numberVar = Number(object)
+  //   return !isNaN(numberVar)
+  // }
 }
 
 export { UsersController }
