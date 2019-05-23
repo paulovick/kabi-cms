@@ -12,7 +12,9 @@ const TYPES = {
     IUserService: 'IUserService',
 
     // Infrastructure
-    IUserRepository: 'IUserRepository'
+    IUserRepository: 'IUserRepository',
+    IDatabaseFactory: 'IDatabaseFactory',
+    IMongoDatabase: 'IMongoDatabase'
 }
 
 export { TYPES }
