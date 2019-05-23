@@ -5,7 +5,7 @@ import {IUserRepository} from "../../../../src/domain/repositories";
 import {UserService} from "../../../../src/application/services/implementations";
 import {User} from "../../../../src/domain/entities";
 
-describe('[COMMON] UserService', () => {
+describe('UserService', () => {
     let iUserRepositoryMock: IUserRepository
     let userService: UserService
 

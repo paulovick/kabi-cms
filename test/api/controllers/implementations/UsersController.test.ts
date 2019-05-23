@@ -6,7 +6,7 @@ import { UsersController } from "../../../../src/api/controllers/implementations
 import { ExpressRequest, ExpressResponse } from "../../../../src/api/adapters/express/dtos"
 import { User } from "../../../../src/domain/entities"
 
-describe('[API] UsersController', () => {
+describe('UsersController', () => {
   let iExpressAdapterMock: IExpressAdapter
   let iUserServiceMock: IUserService
   let usersController: UsersController
@@ -44,7 +44,7 @@ describe('[API] UsersController', () => {
 
   describe('registerRoutes', () => {
 
-    it('should call app.use', () => {
+    it('should call iExpressAdapter.use', () => {
       usersController.registerRoutes()
       expect(iExpressAdapterMock.get).toHaveBeenCalledWith('/users/:idOrUsername', expect.any(Function))
     })
