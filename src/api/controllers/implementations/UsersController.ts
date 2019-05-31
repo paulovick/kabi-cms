@@ -61,11 +61,6 @@ class UsersController implements IUsersController {
   public async handleError(request: ExpressRequest, response: ExpressResponse) {
     throw new Error("Not implemented")
   }
-
-  // private static isNumber(object: any): boolean {
-  //   const numberVar = Number(object)
-  //   return !isNaN(numberVar)
-  // }
 }
 
 export { UsersController }

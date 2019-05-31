@@ -13,8 +13,6 @@ import { IExpressAdapter } from '../api/adapters/express/contracts'
 import { ExpressAdapter } from '../api/adapters/express/implementations'
 import { IUserRepository } from '../domain/repositories'
 import { UserRepository } from '../infrastructure/repositories'
-import {DatabaseFactory, IDatabaseFactory} from "../infrastructure/database/factory"
-import {IMongoDatabase, MongoDatabase} from "../infrastructure/database";
 
 const container = new Container()
 
@@ -31,8 +29,6 @@ container.bind<IUserService>(TYPES.IUserService).to(UserService)
 
 // Infrastructure
 container.bind<IUserRepository>(TYPES.IUserRepository).to(UserRepository)
-container.bind<IDatabaseFactory>(TYPES.IDatabaseFactory).to(DatabaseFactory)
-container.bind<IMongoDatabase>(TYPES.IMongoDatabase).to(MongoDatabase)
 
 
 export { container }
